@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Services</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>External code</th>
+      <th>Company Name</th>
+      <th>Recruiter name</th>
+      <th>Applicant name</th>
+      <th>Job ID</th>
+      <th>Job title</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @services.each do |service| %>
+      <tr>
+        <td> <%= service.external_code %> </td>
+        <td> <%= service.company_name %> </td>
+        <td> <%= service.recruiter_name %> </td>
+        <td> <%= service.applicant_name %> </td>
+        <td> <%= service.job_id %> </td>
+        <td> <%= service.job_title %> </td>
+        <td> <%= service.status %> </td>
+        <td><%= link_to 'Show', service %></td>
+        <td><%= link_to 'Edit', edit_service_path(service) %></td>
+        <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Service', new_service_path %>

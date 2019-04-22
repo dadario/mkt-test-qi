@@ -1,0 +1,15 @@
+<h1>Teste de QI comportamental</h1>
+
+<pre>
+Olá <%= @service.applicant_name %>,
+
+Você foi convidado pela empresa <%= @service.company_name %> à participar
+de um teste de QI para a vaga de "<%= @service.job_title %>"
+</pre>
+
+
+<% if @service.already_answered? %>
+<h3>Você já respondeu essas perguntas :(</h3>
+<% else %>
+  <%= link_to 'Vamos começar?', question_path(next_question) %>
+<% end %>

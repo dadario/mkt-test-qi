@@ -1,0 +1,24 @@
+// Place all the styles related to the Questions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.question-options {
+  label {
+    display: inline;
+    margin-right: 2em;
+  }
+  input {
+
+  }
+  margin-bottom: 1em;
+}
+
+.form-body {
+  width: 50em;
+  input {
+    width: 95%;
+  }
+  textarea {
+    width: 97%;
+    height: 4em;
+  }
+}

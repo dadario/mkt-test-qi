@@ -1,0 +1,36 @@
+<%= form_with(model: question, local: true) do |form| %>
+  <% if question.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(question.errors.count, "error") %> prohibited this question from being saved:</h2>
+
+      <ul>
+      <% question.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class='form-body'>
+    <p>
+      <%= form.label :title, 'Title' %>
+      <%= form.text_field :title %>
+    </p>
+    <p>
+      <%= form.label :description, 'Description' %>
+      <%= form.text_field :description %>
+    </p>
+    <p>
+      <%= form.label :options, 'Options' %>
+      <small>Expected format: key1:value1;key2:value2;</small>
+      <%= form.text_area :options %>
+    </p>
+    <p>
+      <%= form.label :right_answer, 'Right answer' %>
+      <small>Indicate only the "key" from above format</small>
+      <%= form.text_field :right_answer %>
+    </p>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

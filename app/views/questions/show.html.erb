@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @question.title %></h1>
+
+<% unless @question.description.blank? %>
+<pre> <%= @question.description %> </pre>
+<% end %>
+<%= form_with(model: @answer, local: true) do |form| %>
+  <%= hidden_field_tag('question_id', @question.id) %>
+  <div class='question-options'>
+    <%= collection_radio_buttons(:answer, :choosed, @question.options_as_object, :id, :value, class: :options) %>
+  </div>
+  <div class="actions">
+    <%= form.submit(next_question? ? 'Próxima' : 'Finalizar') %>
+  </div>
+<% end %>

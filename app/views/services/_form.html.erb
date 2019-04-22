@@ -1,0 +1,43 @@
+<%= form_with(model: service, local: true) do |form| %>
+  <% if service.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(service.errors.count, "error") %> prohibited this service from being saved:</h2>
+
+      <ul>
+      <% service.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class='form-body'>
+    <p>
+      <%= form.label :external_code, 'External code' %>
+      <%= form.text_field :external_code %>
+    </p>
+    <p>
+      <%= form.label :company_name, 'Company Name' %>
+      <%= form.text_field :company_name %>
+    </p>
+    <p>
+      <%= form.label :recruiter_name, 'Recruiter name' %>
+      <%= form.text_field :recruiter_name %>
+    </p>
+    <p>
+      <%= form.label :applicant_name, 'Applicant name' %>
+      <%= form.text_field :applicant_name %>
+    </p>
+    <p>
+      <%= form.label :job_id, 'Job ID' %>
+      <%= form.text_field :job_id %>
+    </p>
+    <p>
+      <%= form.label :job_title, 'Job title' %>
+      <%= form.text_field :job_title %>
+    </p>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
