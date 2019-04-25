@@ -2,7 +2,7 @@
 
 class ServicesController < ApplicationController
   before_action :set_service, only: %i[show edit update destroy execute]
-  skip_before_filter :verify_authenticity_token, only: :requested
+  skip_before_action :verify_authenticity_token, only: :requested
 
   # GET /services
   # GET /services.json
