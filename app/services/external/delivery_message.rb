@@ -20,7 +20,7 @@ module External
 
       path = "/v1/oasis-portal/requests/#{service.external_code}/messages"
       Typhoeus.post("#{ENV['GATEWAY_HOST']}#{path}",
-                    body: attributes,
+                    body: attributes.to_json,
                     headers: { 'Content-type' => 'application/json',
                                'Authorization' => "Bearer #{access_token}" })
     end
