@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     collection do
       post :requested
     end
+    member do
+      get :execute
+    end
   end
   resources :answers, only: :create
 

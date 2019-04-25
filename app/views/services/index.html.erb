@@ -26,7 +26,7 @@
         <td> <%= service.job_id %> </td>
         <td> <%= service.job_title %> </td>
         <td> <%= service.status %> </td>
-        <td><%= link_to 'Show', service %></td>
+        <td><%= link_to 'Execute', "#{service_path(service)}/execute" %></td>
         <td><%= link_to 'Edit', edit_service_path(service) %></td>
         <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ServicesController < ApplicationController
-  before_action :set_service, only: %i[show edit update destroy]
+  before_action :set_service, only: %i[show edit update destroy execute]
 
   # GET /services
   # GET /services.json
@@ -83,6 +83,15 @@ class ServicesController < ApplicationController
     @service.destroy
     respond_to do |format|
       format.html { redirect_to services_url, notice: 'Service was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  # GET /services/1/execute
+  def execute
+    @service.send_message
+    respond_to do |format|
+      format.html { redirect_to services_url, notice: 'Service was successfully executed.' }
       format.json { head :no_content }
     end
   end

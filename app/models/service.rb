@@ -2,7 +2,6 @@
 
 class Service < ApplicationRecord
   before_create :define_status
-  after_create :send_message
 
   has_many :answers
 
@@ -16,13 +15,14 @@ class Service < ApplicationRecord
     { total: (right_answers * 100) / total_questions }
   end
 
+  def send_message
+    ExternalService.send_message(self)
+  end
+
   private
 
   def define_status
     self.status = :created
   end
 
-  def send_message
-    ExternalService.send_message(self)
-  end
 end
