@@ -11,7 +11,7 @@ class ProcessController < ApplicationController
 
   def finished
     @service = Service.find(session[:service])
-
+    @service.update_attribute(status: :completed)
     ExternalService.send_result(@service)
 
     session.delete(:service)
