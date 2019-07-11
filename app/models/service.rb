@@ -12,7 +12,12 @@ class Service < ApplicationRecord
   def result_data
     total_questions = Question.count
     right_answers = answers.select(&:corret?).size
-    { total: (right_answers * 100) / total_questions }
+    {
+      score: (right_answers * 100) / total_questions,
+      summary: 'A simple description about this test',
+      link: 'http://localhost:3000/link.pdf',
+      completionDate: created_at.strftime("%Y-%m-%d")
+    }
   end
 
   def send_message

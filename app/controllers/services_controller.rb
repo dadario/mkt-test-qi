@@ -53,14 +53,10 @@ class ServicesController < ApplicationController
 
     @service = Service.new(requested_params)
 
-    respond_to do |format|
-      if @service.save
-        format.html { redirect_to @service, notice: 'Service was successfully created.' }
-        format.json { render :show, status: :created, location: @service }
-      else
-        format.html { render :new }
-        format.json { render json: @service.errors, status: :unprocessable_entity }
-      end
+    if @service.save
+      render json: { status: :created }, status: :created
+    else
+      render json: @service.errors, status: :unprocessable_entity
     end
   end
 
