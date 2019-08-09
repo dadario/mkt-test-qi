@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      function executar() {
+          jQuery.ajax({
+            url: 'https://dirny3mcui.execute-api.sa-east-1.amazonaws.com/default/upload_image_to_s3',
+            method: 'POST',
+            headers: {
+            }
+          }).always(function(response) {
+            console.log('Valor do always');
+            console.log(response);
+          }).done(function(data) {
+            console.log('valor do done')
+            $('#resposta').val(JSON.stringify(data));
+          });
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Teste</h1>
+    <button name="teste" onclick="executar()">Executar</button>
+    <br />
+    <textarea id="resposta" cols="100" rows="10"></textarea>
+  </body>
+</html>

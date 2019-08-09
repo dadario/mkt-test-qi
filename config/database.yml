@@ -23,3 +23,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
+  host: localhost
+  database: mkt_test_production
+  username: <%= ENV["PG_USER"] %>
+  password: <%= ENV["PG_PWD"] %>

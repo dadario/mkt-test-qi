@@ -11,6 +11,7 @@
       <th>Applicant name</th>
       <th>Job ID</th>
       <th>Job title</th>
+      <th>Simulated?</th>
       <th>Status</th>
       <th colspan="3"></th>
     </tr>
@@ -25,6 +26,7 @@
         <td> <%= service.applicant_name %> </td>
         <td> <%= service.job_id %> </td>
         <td> <%= service.job_title %> </td>
+        <td> <%= service.simulated || false %> </td>
         <td> <%= service.status %> </td>
         <td><%= link_to 'Execute', "#{service_path(service)}/execute" %></td>
         <td><%= link_to 'Edit', edit_service_path(service) %></td>

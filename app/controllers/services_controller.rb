@@ -48,7 +48,8 @@ class ServicesController < ApplicationController
       applicant_name: params[:applicant][:name],
       job_id: params[:job][:id],
       job_title: params[:job][:title],
-      status: params[:status]
+      status: params[:status],
+      simulated: params[:simulated]
     }
 
     @service = Service.new(requested_params)
