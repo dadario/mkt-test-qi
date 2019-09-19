@@ -13,7 +13,7 @@ class Service < ApplicationRecord
     total_questions = Question.count
     right_answers = answers.select(&:corret?).size
     {
-      score: (right_answers * 100) / total_questions,
+      score: ((right_answers * 100) / total_questions) * 1.0,
       summary: 'A simple description about this test',
       link: 'http://localhost:3000/link.pdf',
       completionDate: created_at.strftime("%Y-%m-%d")
