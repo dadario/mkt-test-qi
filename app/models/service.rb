@@ -16,7 +16,8 @@ class Service < ApplicationRecord
       score: ((right_answers * 100) / total_questions) * 1.0,
       summary: 'A simple description about this test',
       link: 'http://localhost:3000/link.pdf',
-      completionDate: created_at.strftime("%Y-%m-%d")
+      completionDate: created_at.strftime("%Y-%m-%d"),
+      expires_at: (created_at + 3.months).strftime("%Y-%m-%d")
     }
   end
 
