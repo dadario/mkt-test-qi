@@ -43,8 +43,11 @@ class ServicesController < ApplicationController
   def requested
     requested_params = {
       external_code: params[:id],
+      company_id: params[:company][:id],
       company_name: params[:company][:name],
+      recruiter_id: params[:recruiter][:id],
       recruiter_name: params[:recruiter][:name],
+      applicant_id: params[:applicant][:id],
       applicant_name: params[:applicant][:name],
       job_id: params[:job][:id],
       job_title: params[:job][:title],

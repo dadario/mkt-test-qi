@@ -20,9 +20,9 @@
     <% @services.each do |service| %>
       <tr>
         <td> <%= service.external_code %> </td>
-        <td> <%= service.company_name %> </td>
-        <td> <%= service.recruiter_name %> </td>
-        <td> <%= service.applicant_name %> </td>
+        <td> (<%= service.company_id %>) <%= service.company_name %> </td>
+        <td> (<%= service.recruiter_id %>) <%= service.recruiter_name %> </td>
+        <td> (<%= service.applicant_id %>) <%= service.applicant_name %> </td>
         <td> <%= service.job_id %> </td>
         <td> <%= service.job_title %> </td>
         <td> <%= service.status %> </td>

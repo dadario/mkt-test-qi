@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -12,33 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_190_418_142_344) do
-  create_table 'answers', force: :cascade do |t|
-    t.integer 'question_id'
-    t.integer 'service_id'
-    t.string 'choosed'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+ActiveRecord::Schema.define(version: 2019_10_14_183623) do
+
+  create_table "answers", force: :cascade do |t|
+    t.integer "question_id"
+    t.integer "service_id"
+    t.string "choosed"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'questions', force: :cascade do |t|
-    t.string 'title'
-    t.string 'description'
-    t.string 'options'
-    t.string 'right_answer'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "questions", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.string "options"
+    t.string "right_answer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'services', force: :cascade do |t|
-    t.string 'external_code'
-    t.string 'company_name'
-    t.string 'recruiter_name'
-    t.string 'applicant_name'
-    t.integer 'job_id'
-    t.string 'job_title'
-    t.string 'status'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "services", force: :cascade do |t|
+    t.string "external_code"
+    t.string "company_name"
+    t.string "recruiter_name"
+    t.string "applicant_name"
+    t.integer "job_id"
+    t.string "job_title"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "simulated"
+    t.string "applicant_id"
+    t.string "company_id"
+    t.string "recruiter_id"
   end
+
 end

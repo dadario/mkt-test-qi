@@ -29,5 +29,4 @@ class Service < ApplicationRecord
   def define_status
     self.status = :created
   end
-
 end
