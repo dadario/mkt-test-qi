@@ -24,6 +24,10 @@ class Service < ApplicationRecord
     ExternalService.send_message(self)
   end
 
+  def send_result
+    ExternalService.send_result(self)
+  end
+
   private
 
   def define_status

@@ -12,7 +12,7 @@
       <th>Job ID</th>
       <th>Job title</th>
       <th>Status</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -26,9 +26,14 @@
         <td> <%= service.job_id %> </td>
         <td> <%= service.job_title %> </td>
         <td> <%= service.status %> </td>
-        <td><%= link_to 'Execute', "#{service_path(service)}/execute" %></td>
-        <td><%= link_to 'Edit', edit_service_path(service) %></td>
-        <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to 'Execute', "#{service_path(service)}/execute" %>
+          <% if service.already_answered? %>
+          | <%= link_to 'Send Result', "#{service_path(service)}/result" %>
+          <% end %>
+          | <%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+
       </tr>
     <% end %>
   </tbody>

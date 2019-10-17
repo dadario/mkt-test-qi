@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ServicesController < ApplicationController
-  before_action :set_service, only: %i[show edit update destroy execute]
+  before_action :set_service, only: %i[show edit update destroy execute result]
   skip_before_action :verify_authenticity_token, only: :requested
 
   # GET /services
@@ -94,6 +94,16 @@ class ServicesController < ApplicationController
       format.html { redirect_to services_url, notice: 'Service was successfully executed.' }
       format.json { head :no_content }
     end
+  end
+
+  # GET /services/1/result
+  def result
+    @service.send_result
+    respond_to do |format|
+      format.html { redirect_to services_url, notice: 'Service result was successfully sent.' }
+      format.json { head :no_content }
+    end
+
   end
 
   private

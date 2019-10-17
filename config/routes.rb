@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     end
     member do
       get :execute
+      get :result
     end
   end
   resources :answers, only: :create
