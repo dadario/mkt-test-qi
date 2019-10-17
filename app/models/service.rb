@@ -14,9 +14,10 @@ class Service < ApplicationRecord
     right_answers = answers.select(&:corret?).size
     {
       score: (right_answers * 100) / total_questions,
-      summary: 'A simple description about this test',
-      link: 'http://localhost:3000/link.pdf',
-      completionDate: created_at.strftime("%Y-%m-%d")
+      summary: 'Avaliação Comportamental',
+      link: 'https://trabalheconosco.vagas.com.br/vagas',
+      completionDate: created_at.strftime("%Y-%m-%d"),
+      expires_at: (created_at + 1.year).strftime("%Y-%m-%d")
     }
   end
 
