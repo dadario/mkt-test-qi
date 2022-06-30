@@ -4,6 +4,7 @@ metadata:
   name: mkt-test-qi
   annotations:
     github.com/project-slug: dadario/mkt-test-qi
+    backstage.io/techdocs-ref: value
 spec:
   type: other
   lifecycle: unknown
