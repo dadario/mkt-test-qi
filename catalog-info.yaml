@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: mkt-test-qi
+  annotations:
+    github.com/project-slug: dadario/mkt-test-qi
+spec:
+  type: other
+  lifecycle: unknown
+  owner: dadario
